@@ -5,5 +5,9 @@
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.checkstyle.configuration": "checkstyle.xml",
   "java.checkstyle.version": "8.39",
-  "java.format.settings.url": "formatter.xml"
+  "java.format.settings.url": "formatter.xml",
+  "java.completion.importOrder": [
+    "#",
+    ""
+  ]
 }
