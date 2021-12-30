@@ -8,7 +8,7 @@ test {
 	// Setup verbosity
 	testLogging {
 		exceptionFormat "full"
-		events "skipped", "failed"
+		events "passed", "skipped", "failed"
 	}
 }
 
