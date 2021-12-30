@@ -90,6 +90,7 @@ public class Minimatch {
   private static final Pattern tailNormalizer = Pattern.compile("((?:\\\\{2}){0,64})(\\\\?)\\|");
   private static final Pattern nestedParensNormalizer = Pattern.compile("\\)[+*?]?");
   private static final Pattern regexpEscaper = Pattern.compile("[-\\[\\]{}()*+?.,\\\\^$|#\\s]");
+  private static final Pattern globUnscaper = Pattern.compile("\\\\(.)");
 
   private int options;
   private MinimatchPattern[][] set;
@@ -1110,28 +1111,7 @@ public class Minimatch {
 
   // replace stuff like \* with *
   private static String globUnescape(String s) {
-    StringBuilder sb = new StringBuilder();
-    int start = 0;
-    for (int i = 0; i < s.length(); i++) {
-      if (s.charAt(i) == '\\') {
-        if (i != 0) {
-          sb.append(s.substring(start, i));
-        }
-        i++;
-        if (i < s.length()) {
-          sb.append(s.charAt(i));
-        } else {
-          sb.append(s.charAt(i - 1));
-        }
-        start = i + 1;
-      }
-    }
-
-    if (start < s.length()) {
-      sb.append(s.substring(start));
-    }
-
-    return sb.toString();
+    return globUnscaper.matcher(s).replaceAll("$1");
   }
 
   private static String regExpEscape(String s) {
