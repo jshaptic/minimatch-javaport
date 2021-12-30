@@ -17,11 +17,11 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class BraceExpansion {
 
-  private static final String escSlash = "\0SLASH" + Math.random() + "\0";
-  private static final String escOpen = "\0OPEN" + Math.random() + "\0";
-  private static final String escClose = "\0CLOSE" + Math.random() + "\0";
-  private static final String escComma = "\0COMMA" + Math.random() + "\0";
-  private static final String escPeriod = "\0PERIOD" + Math.random() + "\0";
+  private static final String ESC_SLASH = "\0SLASH" + Math.random() + "\0";
+  private static final String ESC_OPEN = "\0OPEN" + Math.random() + "\0";
+  private static final String ESC_CLOSE = "\0CLOSE" + Math.random() + "\0";
+  private static final String ESC_COMMA = "\0COMMA" + Math.random() + "\0";
+  private static final String ESC_PERIOD = "\0PERIOD" + Math.random() + "\0";
 
   private static final Pattern numericSequence = Pattern.compile("^-?\\d+\\.\\.-?\\d+(?:\\.\\.-?\\d+)?$");
   private static final Pattern alphaSequence = Pattern.compile("^[a-zA-Z]\\.\\.[a-zA-Z](?:\\.\\.-?\\d+)?$");
@@ -38,11 +38,11 @@ public class BraceExpansion {
 
   private static String escapeBraces(String str) {
     return StringUtils.replaceEach(str, new String[] {"\\\\", "\\{", "\\}", "\\,", "\\."},
-        new String[] {escSlash, escOpen, escClose, escComma, escPeriod});
+        new String[] {ESC_SLASH, ESC_OPEN, ESC_CLOSE, ESC_COMMA, ESC_PERIOD});
   }
 
   private static String unescapeBraces(String str) {
-    return StringUtils.replaceEach(str, new String[] {escSlash, escOpen, escClose, escComma, escPeriod},
+    return StringUtils.replaceEach(str, new String[] {ESC_SLASH, ESC_OPEN, ESC_CLOSE, ESC_COMMA, ESC_PERIOD},
         new String[] {"\\", "{", "}", ",", "."});
   }
 
@@ -131,7 +131,7 @@ public class BraceExpansion {
       // {a},b}
       if (m.getPost().indexOf(',') >= 0 && m.getPost().indexOf('}') >= 0
           && m.getPost().indexOf(',') < m.getPost().indexOf('}')) {
-        str = m.getPre() + "{" + m.getBody() + escClose + m.getPost();
+        str = m.getPre() + "{" + m.getBody() + ESC_CLOSE + m.getPost();
         return expand(str, false);
       }
       return new String[] {str};

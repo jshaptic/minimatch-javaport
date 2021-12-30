@@ -65,19 +65,19 @@ public class Minimatch {
 
   // any single thing other than /
   // don't need to escape / when using new RegExp()
-  private static final String qmark = "[^/]";
+  private static final String QMARK = "[^/]";
 
   // * => any number of characters
-  private static final String star = qmark + "*?";
+  private static final String STAR = QMARK + "*?";
 
   // ** when dots are allowed. Anything goes, except .. and .
   // not (^ or / followed by one or two dots followed by $ or /),
   // followed by anything, any number of times.
-  private static final String twoStarDot = "(?:(?!(?:\\/|^)(?:\\.{1,2})($|\\/)).)*?";
+  private static final String TWO_STAR_DOT = "(?:(?!(?:\\/|^)(?:\\.{1,2})($|\\/)).)*?";
 
   // not a ^ or / followed by a dot,
   // followed by anything, any number of times.
-  private static final String twoStarNoDot = "(?:(?!(?:\\/|^)\\.).)*?";
+  private static final String TWO_STAR_NO_DOT = "(?:(?!(?:\\/|^)\\.).)*?";
 
   // characters that need to be escaped in RegExp.
   private static final char[] reSpecials = {'(', ')', '.', '*', '{', '}', '+', '?', '[', ']', '^', '$', '\\', '!'};
@@ -382,11 +382,11 @@ public class Minimatch {
         // that wasn't consumed by this pass.
         switch (stateChar.get()) {
           case '*':
-            re.append(star);
+            re.append(STAR);
             hasMagic.set(true);
             break;
           case '?':
-            re.append(qmark);
+            re.append(QMARK);
             hasMagic.set(true);
             break;
           default:
@@ -605,7 +605,7 @@ public class Minimatch {
       tail = normalizeTail(tail);
 
       debug("tail=%s\n   %s", tail, tail, pl, re);
-      String t = pl.type == '*' ? star : pl.type == '?' ? qmark : "\\" + pl.type;
+      String t = pl.type == '*' ? STAR : pl.type == '?' ? QMARK : "\\" + pl.type;
 
       hasMagic.set(true);
       re.setLength(pl.reStart);
@@ -799,7 +799,7 @@ public class Minimatch {
     }
     int options = this.options;
 
-    String twoStar = hasOption(options, NO_GLOBSTAR) ? star : hasOption(options, DOT) ? twoStarDot : twoStarNoDot;
+    String twoStar = hasOption(options, NO_GLOBSTAR) ? STAR : hasOption(options, DOT) ? TWO_STAR_DOT : TWO_STAR_NO_DOT;
     int flags = hasOption(options, NO_CASE) ? Pattern.CASE_INSENSITIVE : 0;
 
     String re = Arrays.stream(set).map(pattern -> {
