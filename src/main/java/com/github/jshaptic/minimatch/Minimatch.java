@@ -38,16 +38,53 @@ import org.apache.commons.lang3.StringUtils;
 public class Minimatch {
 
   public static final int NO_OPTIONS = 0;
+  /**
+   * Dump a ton of stuff to stderr.
+   */
   public static final int DEBUG = 1;
+  /**
+   * Do not expand {@code &#123;a,b&#125;} and {@code &#123;1..3&#125;} brace sets.
+   */
   public static final int NO_BRACE = 2;
+  /**
+   * Disable {@code **} matching against multiple folder names.
+   */
   public static final int NO_GLOBSTAR = 4;
+  /**
+   * Allow patterns to match filenames starting with a period, even if the pattern does not explicitly have a period in
+   * that spot. Note that by default, {@code a/**&#47;b} will <b>not</b> match {@code a/.d/b}, unless {@link #DOT} is
+   * set.
+   */
   public static final int DOT = 8;
+  /**
+   * Disable "extglob" style patterns like {@code +(a|b)}.
+   */
   public static final int NO_EXT = 16;
+  /**
+   * Perform a case-insensitive match.
+   */
   public static final int NO_CASE = 32;
+  /**
+   * When a match is not found by {@link #match}, return a list containing the pattern itself if this option is set.
+   * When not set, an empty list is returned if there are no matches.
+   */
   public static final int NO_NULL = 64;
+  /**
+   * If set, then patterns without slashes will be matched against the basename of the path if it contains slashes. For
+   * example, {@code a?b} would match the path {@code /xyz/123/acb}, but not {@code /xyz/acb/123}.
+   */
   public static final int MATCH_BASE = 128;
+  /**
+   * Suppress the behavior of treating {@code #} at the start of a pattern as a comment.
+   */
   public static final int NO_COMMENT = 256;
+  /**
+   * Suppress the behavior of treating a leading {@code !} character as negation.
+   */
   public static final int NO_NEGATE = 512;
+  /**
+   * Returns from negate expressions the same as if they were not negated. (Ie, true on a hit, false on a miss.)
+   */
   public static final int FLIP_NEGATE = 1024;
 
   private static final String SEP = FileSystems.getDefault().getSeparator();
