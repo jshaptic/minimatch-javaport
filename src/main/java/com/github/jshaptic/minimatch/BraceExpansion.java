@@ -215,7 +215,7 @@ public class BraceExpansion {
       }
     }
 
-    return expansions.toArray(String[]::new);
+    return expansions.toArray(new String[] {});
   }
 
 }
