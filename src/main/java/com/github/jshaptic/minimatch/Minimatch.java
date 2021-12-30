@@ -269,18 +269,19 @@ public class Minimatch {
    * <p>
    * Brace expansion:
    * <ul>
-   * <li>{@code a&#123;b,c&#125;d -> abd acd}</li>
-   * <li>{@code a&#123;b,&#125;c -> abc ac}</li>
-   * <li>{@code a&#123;0..3&#125;d -> a0d a1d a2d a3d}</li>
-   * <li>{@code a&#123;b,c&#123;d,e&#125;f&#125;g -> abg acdfg acefg}</li>
-   * <li>{@code a&#123;b,c&#125;d&#123;e,f&#125;g -> abdeg acdeg abdeg abdfg}</li>
+   * <li>{@code a&#123;b,c&#125;d -&gt; abd acd}</li>
+   * <li>{@code a&#123;b,&#125;c -&gt; abc ac}</li>
+   * <li>{@code a&#123;0..3&#125;d -&gt; a0d a1d a2d a3d}</li>
+   * <li>{@code a&#123;b,c&#123;d,e&#125;f&#125;g -&gt; abg acdfg acefg}</li>
+   * <li>{@code a&#123;b,c&#125;d&#123;e,f&#125;g -&gt; abdeg acdeg abdeg abdfg}</li>
    * </ul>
    * </p>
+   * 
    * <p>
    * Invalid sets are not expanded:
    * <ul>
-   * <li>{@code a&#123;2..&#125;b -> a&#123;2..&#125;b}</li>
-   * <li>{@code a&#123;b&#125;c -> a&#123;b&#125;c}</li>
+   * <li>{@code a&#123;2..&#125;b -&gt; a&#123;2..&#125;b}</li>
+   * <li>{@code a&#123;b&#125;c -&gt; a&#123;b&#125;c}</li>
    * </ul>
    * </p>
    *
@@ -303,18 +304,19 @@ public class Minimatch {
    * <p>
    * Brace expansion:
    * <ul>
-   * <li>{@code a&#123;b,c&#125;d -> abd acd}</li>
-   * <li>{@code a&#123;b,&#125;c -> abc ac}</li>
-   * <li>{@code a&#123;0..3&#125;d -> a0d a1d a2d a3d}</li>
-   * <li>{@code a&#123;b,c&#123;d,e&#125;f&#125;g -> abg acdfg acefg}</li>
-   * <li>{@code a&#123;b,c&#125;d&#123;e,f&#125;g -> abdeg acdeg abdeg abdfg}</li>
+   * <li>{@code a&#123;b,c&#125;d -&gt; abd acd}</li>
+   * <li>{@code a&#123;b,&#125;c -&gt; abc ac}</li>
+   * <li>{@code a&#123;0..3&#125;d -&gt; a0d a1d a2d a3d}</li>
+   * <li>{@code a&#123;b,c&#123;d,e&#125;f&#125;g -&gt; abg acdfg acefg}</li>
+   * <li>{@code a&#123;b,c&#125;d&#123;e,f&#125;g -&gt; abdeg acdeg abdeg abdfg}</li>
    * </ul>
    * </p>
+   * 
    * <p>
    * Invalid sets are not expanded:
    * <ul>
-   * <li>{@code a&#123;2..&#125;b -> a&#123;2..&#125;b}</li>
-   * <li>{@code a&#123;b&#125;c -> a&#123;b&#125;c}</li>
+   * <li>{@code a&#123;2..&#125;b -&gt; a&#123;2..&#125;b}</li>
+   * <li>{@code a&#123;b&#125;c -&gt; a&#123;b&#125;c}</li>
    * </ul>
    * </p>
    *
