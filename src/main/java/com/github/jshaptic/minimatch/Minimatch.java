@@ -269,18 +269,18 @@ public class Minimatch {
    * <p>
    * Brace expansion:
    * <ul>
-   * <li>a{b,c}d -> abd acd</li>
-   * <li>a{b,}c -> abc ac</li>
-   * <li>a{0..3}d -> a0d a1d a2d a3d</li>
-   * <li>a{b,c{d,e}f}g -> abg acdfg acefg</li>
-   * <li>a{b,c}d{e,f}g -> abdeg acdeg abdeg abdfg</li>
+   * <li>{@code a&#123;b,c&#125;d -> abd acd}</li>
+   * <li>{@code a&#123;b,&#125;c -> abc ac}</li>
+   * <li>{@code a&#123;0..3&#125;d -> a0d a1d a2d a3d}</li>
+   * <li>{@code a&#123;b,c&#123;d,e&#125;f&#125;g -> abg acdfg acefg}</li>
+   * <li>{@code a&#123;b,c&#125;d&#123;e,f&#125;g -> abdeg acdeg abdeg abdfg}</li>
    * </ul>
    * </p>
    * <p>
    * Invalid sets are not expanded:
    * <ul>
-   * <li>a{2..}b -> a{2..}b</li>
-   * <li>a{b}c -> a{b}c</li>
+   * <li>{@code a&#123;2..&#125;b -> a&#123;2..&#125;b}</li>
+   * <li>{@code a&#123;b&#125;c -> a&#123;b&#125;c}</li>
    * </ul>
    * </p>
    *
