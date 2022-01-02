@@ -8,12 +8,13 @@ plugins {
   id "me.champeau.jmh" version "0.6.6"
 }
 
-apply from: "gradle/setup.gradle"			// setup runtime properties
+apply from: "gradle/setup.gradle"			    // setup runtime properties
 apply from: "gradle/dependencies.gradle"	// setup dependecies
-apply from: "gradle/compile.gradle"			// setup compile settings and tasks
-apply from: "gradle/testing.gradle"			// setup testing settings and tasks
-apply from: "gradle/javadoc.gradle"			// setup javadoc settings and tasks
-apply from: "gradle/packaging.gradle"		// setup packaging settings and tasks
+apply from: "gradle/compile.gradle"			  // setup compile settings and tasks
+apply from: "gradle/testing.gradle"			  // setup testing settings and tasks
+apply from: "gradle/jmh.gradle"			      // setup jmh settings and tasks
+apply from: "gradle/javadoc.gradle"			  // setup javadoc settings and tasks
+apply from: "gradle/packaging.gradle"		  // setup packaging settings and tasks
 apply from: "gradle/publishing.gradle"		// setup publishing settings and tasks
 
 wrapper {

@@ -1,8 +1,6 @@
 package com.github.jshaptic.minimatch;
 
 import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Mode;
 
 public class MinimatchBenchmark {
 
@@ -14,7 +12,6 @@ public class MinimatchBenchmark {
   }
 
   @Benchmark
-  @BenchmarkMode(Mode.AverageTime)
   public void match() {
     for (int f = 0; f < files.length; f++) {
       Minimatch.minimatch(files[f], pattern);

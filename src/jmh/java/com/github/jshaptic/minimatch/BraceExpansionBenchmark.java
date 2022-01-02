@@ -7,9 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Level;
-import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
@@ -39,7 +37,6 @@ public class BraceExpansionBenchmark {
   }
 
   @Benchmark
-  @BenchmarkMode(Mode.AverageTime)
   public void expand(Data data) {
     for (String c : data.cases) {
       BraceExpansion.expand(c);
