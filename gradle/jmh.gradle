@@ -1,0 +1,6 @@
+jmh {
+    iterations = 3
+    benchmarkMode = ['thrpt']
+    warmupIterations = 1
+    fork = 1
+}

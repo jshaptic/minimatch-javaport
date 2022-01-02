@@ -2,8 +2,6 @@ package com.github.jshaptic.minimatch;
 
 import java.util.regex.Pattern;
 import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Mode;
 
 public class BalancedMatchBenchmark {
 
@@ -12,7 +10,6 @@ public class BalancedMatchBenchmark {
   }
 
   @Benchmark
-  @BenchmarkMode(Mode.AverageTime)
   public void indexOf() {
     BalancedMatch.balanced("{", "}", "pre{in{nest}}post");
     BalancedMatch.balanced("{", "}", "{{{{{{{{{in}post");
@@ -32,7 +29,6 @@ public class BalancedMatchBenchmark {
   }
 
   @Benchmark
-  @BenchmarkMode(Mode.AverageTime)
   public void looping() {
     BalancedMatchLooping.balanced("{", "}", "pre{in{nest}}post");
     BalancedMatchLooping.balanced("{", "}", "{{{{{{{{{in}post");
