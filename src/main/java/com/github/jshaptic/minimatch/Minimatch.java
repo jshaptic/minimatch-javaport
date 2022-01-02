@@ -1162,28 +1162,30 @@ public class Minimatch {
 
   // PORT_INFO: method for printing debug information
   private void debug(boolean hasLogline, Object... vars) {
-    if (hasOption(options, DEBUG)) {
-      String logline = "";
-      if (hasLogline) {
-        Object[] v = {};
-        if (vars != null && vars.length > 0 && vars[0] instanceof String) {
-          logline = vars[0].toString();
-          if (vars.length > 1) {
-            v = new Object[vars.length - 2];
-            for (int i = 0; i < v.length; i++) {
-              v[i] = vars[i + 1];
-            }
+    if (!hasOption(options, DEBUG)) {
+      return;
+    }
+
+    String logline = "";
+    if (hasLogline) {
+      Object[] v = {};
+      if (vars != null && vars.length > 0 && vars[0] instanceof String) {
+        logline = vars[0].toString();
+        if (vars.length > 1) {
+          v = new Object[vars.length - 2];
+          for (int i = 0; i < v.length; i++) {
+            v[i] = vars[i + 1];
           }
         }
-        System.out.format("%s: ", Thread.currentThread().getStackTrace()[2].getLineNumber());
-        System.out.format(logline + "\n", v);
-      } else if (vars != null) {
-        for (int i = 0; i < vars.length; i++) {
-          logline += "%s ";
-        }
-        System.out.format("%s: ", Thread.currentThread().getStackTrace()[2].getLineNumber());
-        System.out.format(logline.trim() + "\n", vars);
       }
+      System.out.format("%s: ", Thread.currentThread().getStackTrace()[2].getLineNumber());
+      System.out.format(logline + "\n", v);
+    } else if (vars != null) {
+      for (int i = 0; i < vars.length; i++) {
+        logline += "%s ";
+      }
+      System.out.format("%s: ", Thread.currentThread().getStackTrace()[2].getLineNumber());
+      System.out.format(logline.trim() + "\n", vars);
     }
   }
 
