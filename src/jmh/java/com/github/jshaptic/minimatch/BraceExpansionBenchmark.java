@@ -14,7 +14,7 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 
-public class BraceExpansionBench {
+public class BraceExpansionBenchmark {
 
   @State(Scope.Benchmark)
   public static class Data {
