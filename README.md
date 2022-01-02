@@ -1,4 +1,4 @@
-# minimatch
+# minimatch-javaport
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/535b2d6e4b0fe84a2dc3/maintainability)](https://codeclimate.com/github/jshaptic/minimatch-javaport/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/535b2d6e4b0fe84a2dc3/test_coverage)](https://codeclimate.com/github/jshaptic/minimatch-javaport/test_coverage)
